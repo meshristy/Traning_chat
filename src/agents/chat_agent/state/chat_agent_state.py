@@ -1,4 +1,6 @@
-from typing import TypedDict
+from typing import TypedDict,Annotated
+from langchain.messages import AnyMessage
+import operator
 
-class chatAgentState(TypedDict):
-    messages:str
+class ChatAgentState(TypedDict):
+    messages: Annotated[list[AnyMessage], operator.add]
